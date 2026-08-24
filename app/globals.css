@@ -334,11 +334,49 @@ h1 {
   display: grid;
   gap: clamp(28px, 5vw, 70px);
   grid-template-columns: minmax(260px, 0.55fr) minmax(320px, 1fr);
+  isolation: isolate;
+  overflow: hidden;
   padding: 88px 0;
+  position: relative;
+}
+
+.service-route::before {
+  background-image: url("/images/rutas-paneles.png");
+  background-position: 18% center;
+  background-size: cover;
+  content: "";
+  inset: 0;
+  opacity: 0.16;
+  pointer-events: none;
+  position: absolute;
+  z-index: 0;
+}
+
+.service-route::after {
+  background: linear-gradient(90deg, rgba(247, 247, 244, 0.96), rgba(247, 247, 244, 0.84));
+  content: "";
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+  z-index: 0;
+}
+
+.service-route > * {
+  position: relative;
+  z-index: 1;
 }
 
 .service-route + .service-route {
   border-top: 1px solid var(--line);
+}
+
+.service-route.education::before {
+  background-position: 82% center;
+  opacity: 0.18;
+}
+
+.service-route.education::after {
+  background: linear-gradient(90deg, rgba(247, 247, 244, 0.95), rgba(235, 241, 242, 0.86));
 }
 
 .service-route.education .section-label,
