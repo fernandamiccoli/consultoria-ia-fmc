@@ -346,7 +346,7 @@ h1 {
   background-size: cover;
   content: "";
   inset: 0;
-  opacity: 0.34;
+  opacity: 0.5;
   pointer-events: none;
   position: absolute;
   z-index: 0;
@@ -354,8 +354,8 @@ h1 {
 
 .service-route::after {
   background:
-    linear-gradient(90deg, rgba(247, 247, 244, 0.94) 0%, rgba(247, 247, 244, 0.84) 46%, rgba(247, 247, 244, 0.7) 100%),
-    radial-gradient(circle at 84% 22%, rgba(196, 154, 89, 0.14), transparent 34%);
+    linear-gradient(90deg, rgba(247, 247, 244, 0.82) 0%, rgba(247, 247, 244, 0.62) 48%, rgba(247, 247, 244, 0.36) 100%),
+    radial-gradient(circle at 84% 22%, rgba(196, 154, 89, 0.1), transparent 34%);
   content: "";
   inset: 0;
   pointer-events: none;
@@ -374,13 +374,13 @@ h1 {
 
 .service-route.education::before {
   background-position: 82% center;
-  opacity: 0.36;
+  opacity: 0.52;
 }
 
 .service-route.education::after {
   background:
-    linear-gradient(90deg, rgba(247, 247, 244, 0.92) 0%, rgba(235, 241, 242, 0.82) 48%, rgba(221, 233, 236, 0.68) 100%),
-    radial-gradient(circle at 82% 20%, rgba(22, 61, 88, 0.16), transparent 36%);
+    linear-gradient(90deg, rgba(247, 247, 244, 0.8) 0%, rgba(235, 241, 242, 0.58) 48%, rgba(221, 233, 236, 0.34) 100%),
+    radial-gradient(circle at 82% 20%, rgba(22, 61, 88, 0.1), transparent 36%);
 }
 
 .service-route.education .section-label,
@@ -389,9 +389,13 @@ h1 {
 }
 
 .service-intro {
+  align-self: start;
+  background: rgba(247, 247, 244, 0.58);
+  backdrop-filter: blur(10px);
+  border-left: 3px solid rgba(196, 154, 89, 0.58);
+  padding: 22px 24px 26px;
   position: sticky;
   top: 120px;
-  align-self: start;
 }
 
 .service-intro h2 {
@@ -399,7 +403,11 @@ h1 {
 }
 
 .service-list {
+  background: rgba(247, 247, 244, 0.68);
+  backdrop-filter: blur(10px);
   border-top: 1px solid var(--line);
+  box-shadow: 0 18px 56px rgba(4, 24, 23, 0.08);
+  padding: 0 26px;
 }
 
 .service-row {
