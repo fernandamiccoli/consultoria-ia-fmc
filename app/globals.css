@@ -263,13 +263,40 @@ h1 {
   transition: background 260ms ease, letter-spacing 260ms ease;
 }
 
+.route-card::before {
+  background: linear-gradient(90deg, rgba(2, 42, 37, 0.52), rgba(2, 42, 37, 0.16));
+  content: "";
+  inset: 0;
+  position: absolute;
+  transition: opacity 260ms ease;
+  z-index: 0;
+}
+
+.route-card > * {
+  position: relative;
+  z-index: 1;
+}
+
 .route-card:hover {
   background: rgba(0, 0, 0, 0.16);
   letter-spacing: 0.055em;
 }
 
+.route-card:hover::before {
+  opacity: 0.72;
+}
+
 .route-empresas {
   border-right: 1px solid rgba(196, 154, 89, 0.7);
+  position: relative;
+}
+
+.route-educacion {
+  position: relative;
+}
+
+.route-educacion::before {
+  background: linear-gradient(90deg, rgba(22, 61, 88, 0.48), rgba(22, 61, 88, 0.12));
 }
 
 .route-icon {
