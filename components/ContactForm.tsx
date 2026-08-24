@@ -53,6 +53,9 @@ export function ContactForm() {
         <label htmlFor="website">Sitio web</label>
         <input id="website" name="website" tabIndex={-1} autoComplete="off" />
       </div>
+      <p className={`form-status ${state.status}`} role="status" aria-live="polite">
+        {state.message ?? "Tu información se utiliza solo para responder tu consulta."}
+      </p>
       <FormField id="nombre" label="Nombre" error={state.errors?.nombre}>
         <input id="nombre" name="nombre" placeholder="Tu nombre" autoComplete="name" />
       </FormField>
@@ -78,9 +81,6 @@ export function ContactForm() {
         <span>{submitting ? "Enviando consulta" : "Enviar consulta"}</span>
         <span aria-hidden="true">→</span>
       </button>
-      <p className={`form-status ${state.status}`} role="status" aria-live="polite">
-        {state.message ?? "Tu información se utiliza solo para responder tu consulta."}
-      </p>
     </form>
   );
 }

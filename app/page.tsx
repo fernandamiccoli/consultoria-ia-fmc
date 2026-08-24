@@ -134,6 +134,15 @@ export default function Home() {
       <a className="sticky-contact" href="#contacto" aria-label="Ir al formulario de contacto">
         Contactar
       </a>
+      <a
+        className="whatsapp-contact"
+        href="https://wa.me/5491130097978?text=Hola%2C%20quiero%20consultar%20por%20Consultor%C3%ADa%20IA%20FMC."
+        target="_blank"
+        rel="noreferrer"
+        aria-label="Contactar por WhatsApp"
+      >
+        <span aria-hidden="true">WA</span>
+      </a>
     </main>
   );
 }
