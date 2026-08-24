@@ -253,18 +253,19 @@ h1 {
   color: var(--white);
   display: grid;
   font-family: var(--serif);
-  font-size: clamp(2.5rem, 5.6vw, 5.7rem);
-  gap: 24px;
-  grid-template-columns: 74px 1fr auto;
-  letter-spacing: 0.08em;
+  font-size: clamp(2.35rem, 4.4vw, 4.6rem);
+  gap: clamp(16px, 2.4vw, 30px);
+  grid-template-columns: 64px minmax(0, 1fr) 34px;
+  letter-spacing: 0.04em;
   min-height: 310px;
-  padding: clamp(28px, 5vw, 72px);
+  overflow: hidden;
+  padding: clamp(28px, 4vw, 58px);
   transition: background 260ms ease, letter-spacing 260ms ease;
 }
 
 .route-card:hover {
   background: rgba(0, 0, 0, 0.16);
-  letter-spacing: 0.11em;
+  letter-spacing: 0.055em;
 }
 
 .route-empresas {
@@ -648,7 +649,7 @@ textarea {
   }
 
   .route-card {
-    font-size: clamp(2.2rem, 12vw, 4.2rem);
+    font-size: clamp(2rem, 10vw, 3.6rem);
     grid-template-columns: 58px 1fr auto;
     min-height: 230px;
   }
