@@ -77,13 +77,15 @@ export default function Home() {
         <ServiceRoute
           id="empresas"
           label="Ruta Empresas"
-          title="Convertimos la IA en ventaja estratégica y sostenible."
+          title="Empresas mediadas por IA"
+          description="Estrategia, procesos y equipos preparados para integrar IA con criterio organizacional."
           items={services.empresas}
         />
         <ServiceRoute
           id="educacion"
           label="Ruta Educación"
-          title="Impulsamos instituciones que enseñan y aprenden con visión de futuro."
+          title="Educación mediada por IA"
+          description="Acompañamiento institucional para enseñar, aprender y gestionar con nuevas capacidades."
           items={services.educacion}
           education
         />
@@ -151,12 +153,14 @@ function ServiceRoute({
   id,
   label,
   title,
+  description,
   items,
   education = false
 }: {
   id: string;
   label: string;
   title: string;
+  description: string;
   items: { title: string; body: string }[];
   education?: boolean;
 }) {
@@ -168,9 +172,13 @@ function ServiceRoute({
           <span className="emblem-orbit one" />
           <span className="emblem-orbit two" />
           <span className="emblem-line" />
+          <span className="emblem-label">
+            {education ? "Educación mediada por IA" : "Empresas mediadas por IA"}
+          </span>
         </div>
         <p className="section-label">{label}</p>
         <h2>{title}</h2>
+        <p className="service-summary">{description}</p>
       </div>
       <div className="service-list">
         {items.map((item, index) => (
@@ -180,7 +188,6 @@ function ServiceRoute({
               <h3>{item.title}</h3>
               <p>{item.body}</p>
             </div>
-            <span className="service-arrow" aria-hidden="true">→</span>
           </article>
         ))}
       </div>
