@@ -9,13 +9,26 @@ export default function Home() {
       <header className="site-header">
         <a href="#inicio" className="brand-link">
           <BrandMark label />
-          <span className="brand-tagline">IA como aliada estratégica</span>
+          <span className="brand-tagline">IA como aliada estratégica para transformar organizaciones</span>
         </a>
         <nav aria-label="Navegación principal">
           <a href="#enfoque">Enfoque</a>
           <a href="#servicios">Servicios</a>
           <a href="#contacto">Contacto</a>
         </nav>
+        <details className="mobile-menu">
+          <summary aria-label="Abrir menú">
+            <span />
+            <span />
+            <span />
+          </summary>
+          <div className="mobile-menu-panel">
+            <a href="#enfoque">Enfoque</a>
+            <a href="#rutas">Rutas</a>
+            <a href="#servicios">Servicios</a>
+            <a href="#contacto">Contacto</a>
+          </div>
+        </details>
       </header>
 
       <section id="inicio" className="hero-section">
