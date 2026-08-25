@@ -9,7 +9,7 @@ export default function Home() {
       <header className="site-header">
         <a href="#inicio" className="brand-link">
           <BrandMark label />
-          <span className="brand-tagline">IA como aliada estratégica para transformar organizaciones</span>
+          <span className="brand-tagline">IA como aliada estratégica</span>
         </a>
         <nav aria-label="Navegación principal">
           <a href="#enfoque">Enfoque</a>
@@ -112,13 +112,13 @@ export default function Home() {
         <ol className="process-list">
           {processSteps.map((step, index) => (
             <li key={step.title} className="process-card">
-              <details open={index === 0}>
+              <details>
                 <summary>
                   <span className="process-number">{String(index + 1).padStart(2, "0")}</span>
                   <h3>{step.title}</h3>
                   <span className="process-click">
-                    <span aria-hidden="true">☝</span>
-                    Clic
+                    <span className="process-click-icon" aria-hidden="true" />
+                    Ver detalle
                   </span>
                 </summary>
                 <p>{step.body}</p>
@@ -203,7 +203,7 @@ function ServiceRoute({
       </div>
       <div className="service-list">
         {items.map((item, index) => (
-          <article key={item.title} className="service-row">
+          <article key={item.title} className={`service-row tone-${index + 1}`}>
             <span className="service-number">{String(index + 1).padStart(2, "0")}</span>
             <div>
               <h3>{item.title}</h3>
