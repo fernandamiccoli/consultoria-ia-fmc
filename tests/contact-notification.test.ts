@@ -15,7 +15,7 @@ describe("buildContactNotificationEmail", () => {
       userAgent: "Vitest"
     });
 
-    expect(email.to).toBe("fernandamiccoli@hotmail.com");
+    expect(email.to).toBe("fernandamiccoli@bue.edu.ar");
     expect(email.subject).toBe("contacto desde web de consultoria");
     expect(email.html).toContain("Colegio Norte");
     expect(email.text).toContain("Institución educativa");

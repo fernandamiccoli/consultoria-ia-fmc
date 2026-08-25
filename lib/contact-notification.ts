@@ -1,8 +1,8 @@
 import type { ContactPayload } from "./contact-validation";
 
-const notificationTo = "fernandamiccoli@hotmail.com";
+const notificationTo = "fernandamiccoli@bue.edu.ar";
 const notificationSubject = "contacto desde web de consultoria";
-const notificationFrom = "Consultoria IA FMC <onboarding@resend.dev>";
+const fallbackNotificationFrom = "Consultoria IA FMC <onboarding@resend.dev>";
 
 const segmentLabels: Record<ContactPayload["segmento"], string> = {
   empresa: "Empresa",
@@ -56,7 +56,7 @@ export function buildContactNotificationEmail({
   `;
 
   return {
-    from: notificationFrom,
+    from: process.env.RESEND_FROM_EMAIL ?? fallbackNotificationFrom,
     to: notificationTo,
     subject: notificationSubject,
     html,
@@ -80,6 +80,14 @@ export async function sendContactNotification(input: ContactNotificationInput) {
     },
     body: JSON.stringify(buildContactNotificationEmail(input))
   });
+
+  if (!response.ok) {
+    const errorBody = await response.text().catch(() => "No se pudo leer el detalle del error.");
+    console.error("Resend no pudo enviar el aviso de contacto.", {
+      status: response.status,
+      body: errorBody
+    });
+  }
 
   return { ok: response.ok, skipped: false };
 }
