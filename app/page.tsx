@@ -38,8 +38,8 @@ export default function Home() {
             Elegí tu ruta
             <span aria-hidden="true">→</span>
           </a>
+          <div className="next-hint">IA como aliada estratégica.</div>
         </div>
-        <div className="next-hint">Transformación antes que herramientas.</div>
       </section>
 
       <section id="rutas" className="routes-section" aria-labelledby="rutas-title">
