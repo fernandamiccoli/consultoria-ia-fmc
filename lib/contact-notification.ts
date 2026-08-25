@@ -69,6 +69,7 @@ export async function sendContactNotification(input: ContactNotificationInput) {
   const apiKey = process.env.RESEND_API_KEY;
 
   if (!apiKey) {
+    console.error("No se envio el aviso de contacto: falta RESEND_API_KEY en Vercel.");
     return { ok: false, skipped: true };
   }
 
@@ -86,6 +87,10 @@ export async function sendContactNotification(input: ContactNotificationInput) {
     console.error("Resend no pudo enviar el aviso de contacto.", {
       status: response.status,
       body: errorBody
+    });
+  } else {
+    console.info("Resend acepto el aviso de contacto.", {
+      to: notificationTo
     });
   }
 
