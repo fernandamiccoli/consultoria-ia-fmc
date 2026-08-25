@@ -108,6 +108,20 @@ textarea:focus-visible {
   text-transform: uppercase;
 }
 
+.brand-link {
+  display: grid;
+  gap: 5px;
+}
+
+.brand-tagline {
+  color: var(--emerald);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  margin-left: 56px;
+  text-transform: uppercase;
+}
+
 .hero-section {
   min-height: 92vh;
   overflow: hidden;
@@ -194,31 +208,6 @@ h1 {
   background: var(--emerald);
   color: var(--white);
   transform: translateY(-2px);
-}
-
-.next-hint {
-  align-items: center;
-  background: rgba(247, 247, 244, 0.78);
-  backdrop-filter: blur(14px);
-  border: 1px solid rgba(196, 154, 89, 0.52);
-  box-shadow: 0 18px 46px rgba(4, 24, 23, 0.1);
-  color: var(--emerald);
-  display: inline-flex;
-  font-size: 0.76rem;
-  font-weight: 800;
-  gap: 10px;
-  letter-spacing: 0.16em;
-  margin-top: 18px;
-  padding: 12px 16px;
-  position: relative;
-  text-transform: uppercase;
-}
-
-.next-hint::before {
-  background: var(--champagne);
-  content: "";
-  height: 1px;
-  width: 34px;
 }
 
 .routes-section,
@@ -556,33 +545,92 @@ h1 {
 
 .process-list {
   display: grid;
-  gap: 1px;
+  gap: clamp(18px, 2vw, 26px);
   grid-template-columns: repeat(5, 1fr);
   list-style: none;
   margin: 0;
   padding: 0;
+  position: relative;
 }
 
-.process-list li {
-  border-left: 1px solid var(--line);
+.process-card {
   min-height: 230px;
-  padding: 28px;
+  position: relative;
 }
 
-.process-list span {
+.process-card:not(:last-child)::after {
+  background: linear-gradient(90deg, rgba(196, 154, 89, 0.72), rgba(6, 60, 53, 0.18));
+  content: "";
+  height: 1px;
+  left: calc(100% + 4px);
+  position: absolute;
+  top: 50%;
+  width: clamp(14px, 2vw, 24px);
+  z-index: 0;
+}
+
+.process-card details {
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(245, 247, 244, 0.88)),
+    radial-gradient(circle at 88% 12%, rgba(196, 154, 89, 0.14), transparent 34%);
+  border: 1px solid rgba(11, 16, 18, 0.1);
+  box-shadow: 0 18px 42px rgba(4, 24, 23, 0.08);
+  min-height: 100%;
+  padding: 26px;
+  position: relative;
+  transition: border-color 220ms ease, box-shadow 220ms ease, transform 220ms ease;
+  z-index: 1;
+}
+
+.process-card details[open] {
+  border-color: rgba(196, 154, 89, 0.52);
+  box-shadow: 0 26px 70px rgba(4, 24, 23, 0.14);
+  transform: translateY(-4px);
+}
+
+.process-card summary {
+  cursor: pointer;
+  display: grid;
+  gap: 22px;
+  list-style: none;
+}
+
+.process-card summary:focus-visible {
+  outline: 2px solid var(--champagne);
+  outline-offset: 6px;
+}
+
+.process-card summary::-webkit-details-marker {
+  display: none;
+}
+
+.process-number {
   color: var(--champagne);
   font-weight: 700;
 }
 
-.process-list h3 {
+.process-card h3 {
   font-size: 1.05rem;
-  margin-top: 28px;
+  line-height: 1.35;
 }
 
-.process-list p {
+.process-click {
+  align-items: center;
+  border-top: 1px solid rgba(11, 16, 18, 0.1);
+  color: var(--emerald);
+  display: inline-flex;
+  font-size: 0.72rem;
+  font-weight: 800;
+  gap: 8px;
+  letter-spacing: 0.12em;
+  padding-top: 16px;
+  text-transform: uppercase;
+}
+
+.process-card p {
   color: var(--muted);
   line-height: 1.6;
-  margin-top: 14px;
+  margin-top: 22px;
 }
 
 .contact-section {
@@ -865,6 +913,21 @@ textarea {
     width: 58px;
   }
 
+  .process-list {
+    gap: 22px;
+  }
+
+  .process-card:not(:last-child)::after {
+    height: 22px;
+    left: 34px;
+    top: calc(100% + 1px);
+    width: 1px;
+  }
+
+  .process-card details {
+    min-height: auto;
+  }
+
   .service-intro {
     position: static;
   }
@@ -900,9 +963,11 @@ textarea {
     font-size: clamp(1.05rem, 5.8vw, 1.45rem);
   }
 
-  .next-hint {
-    font-size: 0.66rem;
-    letter-spacing: 0.14em;
+  .brand-tagline {
+    font-size: 0.58rem;
+    letter-spacing: 0.11em;
+    margin-left: 52px;
+    max-width: 220px;
   }
 
   .hero-copy {

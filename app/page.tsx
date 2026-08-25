@@ -9,6 +9,7 @@ export default function Home() {
       <header className="site-header">
         <a href="#inicio" className="brand-link">
           <BrandMark label />
+          <span className="brand-tagline">IA como aliada estratégica</span>
         </a>
         <nav aria-label="Navegación principal">
           <a href="#enfoque">Enfoque</a>
@@ -38,7 +39,6 @@ export default function Home() {
             Elegí tu ruta
             <span aria-hidden="true">→</span>
           </a>
-          <div className="next-hint">IA como aliada estratégica.</div>
         </div>
       </section>
 
@@ -98,10 +98,18 @@ export default function Home() {
         </div>
         <ol className="process-list">
           {processSteps.map((step, index) => (
-            <li key={step.title}>
-              <span>{String(index + 1).padStart(2, "0")}</span>
-              <h3>{step.title}</h3>
-              <p>{step.body}</p>
+            <li key={step.title} className="process-card">
+              <details open={index === 0}>
+                <summary>
+                  <span className="process-number">{String(index + 1).padStart(2, "0")}</span>
+                  <h3>{step.title}</h3>
+                  <span className="process-click">
+                    <span aria-hidden="true">☝</span>
+                    Clic
+                  </span>
+                </summary>
+                <p>{step.body}</p>
+              </details>
             </li>
           ))}
         </ol>
