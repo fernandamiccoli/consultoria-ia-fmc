@@ -331,6 +331,10 @@ h1 {
 }
 
 .service-route {
+  background:
+    linear-gradient(120deg, rgba(255, 255, 255, 0.94), rgba(239, 244, 241, 0.7)),
+    radial-gradient(circle at 18% 18%, rgba(196, 154, 89, 0.18), transparent 28%),
+    radial-gradient(circle at 92% 8%, rgba(6, 60, 53, 0.12), transparent 34%);
   display: grid;
   gap: clamp(28px, 5vw, 70px);
   grid-template-columns: minmax(260px, 0.55fr) minmax(320px, 1fr);
@@ -341,21 +345,21 @@ h1 {
 }
 
 .service-route::before {
-  background-image: url("/images/rutas-paneles.png");
-  background-position: 18% center;
-  background-size: cover;
+  background:
+    linear-gradient(90deg, rgba(6, 60, 53, 0.16) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(196, 154, 89, 0.12) 1px, transparent 1px);
+  background-size: 74px 74px;
   content: "";
   inset: 0;
-  opacity: 0.5;
+  mask-image: linear-gradient(90deg, black, transparent 72%);
+  opacity: 0.56;
   pointer-events: none;
   position: absolute;
   z-index: 0;
 }
 
 .service-route::after {
-  background:
-    linear-gradient(90deg, rgba(247, 247, 244, 0.82) 0%, rgba(247, 247, 244, 0.62) 48%, rgba(247, 247, 244, 0.36) 100%),
-    radial-gradient(circle at 84% 22%, rgba(196, 154, 89, 0.1), transparent 34%);
+  background: linear-gradient(90deg, rgba(247, 247, 244, 0.7), rgba(247, 247, 244, 0.16));
   content: "";
   inset: 0;
   pointer-events: none;
@@ -372,15 +376,20 @@ h1 {
   border-top: 1px solid var(--line);
 }
 
-.service-route.education::before {
-  background-position: 82% center;
-  opacity: 0.52;
+.service-route.education {
+  background:
+    linear-gradient(120deg, rgba(255, 255, 255, 0.94), rgba(233, 240, 243, 0.74)),
+    radial-gradient(circle at 18% 18%, rgba(22, 61, 88, 0.16), transparent 28%),
+    radial-gradient(circle at 92% 8%, rgba(196, 154, 89, 0.12), transparent 34%);
 }
 
-.service-route.education::after {
+.service-route.education::before {
   background:
-    linear-gradient(90deg, rgba(247, 247, 244, 0.8) 0%, rgba(235, 241, 242, 0.58) 48%, rgba(221, 233, 236, 0.34) 100%),
-    radial-gradient(circle at 82% 20%, rgba(22, 61, 88, 0.1), transparent 36%);
+    linear-gradient(90deg, rgba(22, 61, 88, 0.14) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(196, 154, 89, 0.1) 1px, transparent 1px);
+  background-size: 74px 74px;
+  mask-image: linear-gradient(90deg, black, transparent 72%);
+  opacity: 0.54;
 }
 
 .service-route.education .section-label,
@@ -390,12 +399,80 @@ h1 {
 
 .service-intro {
   align-self: start;
-  background: rgba(247, 247, 244, 0.58);
-  backdrop-filter: blur(10px);
-  border-left: 3px solid rgba(196, 154, 89, 0.58);
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.82);
+  border-left: 3px solid rgba(196, 154, 89, 0.7);
+  box-shadow: 0 24px 74px rgba(4, 24, 23, 0.1);
   padding: 22px 24px 26px;
   position: sticky;
   top: 120px;
+}
+
+.route-emblem {
+  align-items: center;
+  background:
+    radial-gradient(circle at 32% 24%, rgba(196, 154, 89, 0.44), transparent 25%),
+    linear-gradient(145deg, rgba(6, 60, 53, 0.98), rgba(2, 42, 37, 0.9));
+  box-shadow: 0 18px 42px rgba(4, 24, 23, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+  color: var(--white);
+  display: inline-flex;
+  height: 88px;
+  justify-content: center;
+  margin-bottom: 28px;
+  overflow: hidden;
+  position: relative;
+  width: 88px;
+}
+
+.service-route.education .route-emblem {
+  background:
+    radial-gradient(circle at 32% 24%, rgba(196, 154, 89, 0.38), transparent 25%),
+    linear-gradient(145deg, rgba(22, 61, 88, 0.98), rgba(11, 36, 54, 0.9));
+}
+
+.emblem-core {
+  border: 1px solid rgba(255, 255, 255, 0.36);
+  display: grid;
+  font-size: 1rem;
+  font-weight: 800;
+  height: 46px;
+  letter-spacing: 0.08em;
+  place-items: center;
+  position: relative;
+  width: 46px;
+  z-index: 1;
+}
+
+.emblem-orbit,
+.emblem-line {
+  border: 1px solid rgba(196, 154, 89, 0.62);
+  content: "";
+  position: absolute;
+}
+
+.emblem-orbit.one {
+  border-radius: 50%;
+  height: 68px;
+  inset: 10px;
+  width: 68px;
+}
+
+.emblem-orbit.two {
+  border-radius: 50%;
+  height: 112px;
+  left: -12px;
+  top: 34px;
+  width: 112px;
+}
+
+.emblem-line {
+  border-width: 1px 0 0;
+  height: 1px;
+  right: -18px;
+  top: 28px;
+  transform: rotate(-32deg);
+  width: 72px;
 }
 
 .service-intro h2 {
@@ -403,8 +480,8 @@ h1 {
 }
 
 .service-list {
-  background: rgba(247, 247, 244, 0.68);
-  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.74);
+  backdrop-filter: blur(12px);
   border-top: 1px solid var(--line);
   box-shadow: 0 18px 56px rgba(4, 24, 23, 0.08);
   padding: 0 26px;
@@ -705,7 +782,14 @@ textarea {
 
   .hero-section {
     min-height: 88vh;
+    padding-left: 22px;
+    padding-right: 22px;
     padding-top: 132px;
+  }
+
+  h1 {
+    font-size: clamp(3rem, 13.5vw, 5.2rem);
+    max-width: 100%;
   }
 
   .section-heading,
@@ -720,9 +804,23 @@ textarea {
     grid-template-columns: 1fr;
   }
 
+  .route-grid {
+    background-image: none;
+    gap: 18px;
+  }
+
   .route-empresas {
+    background-image: url("/images/rutas-paneles.png");
+    background-position: 18% center;
+    background-size: cover;
     border-bottom: 1px solid rgba(196, 154, 89, 0.7);
     border-right: 0;
+  }
+
+  .route-educacion {
+    background-image: url("/images/rutas-paneles.png");
+    background-position: 82% center;
+    background-size: cover;
   }
 
   .route-card {
@@ -738,6 +836,10 @@ textarea {
 
   .service-intro {
     position: static;
+  }
+
+  .service-route::before {
+    mask-image: linear-gradient(180deg, black, transparent 68%);
   }
 
   .service-row {
@@ -763,7 +865,17 @@ textarea {
 
 @media (max-width: 560px) {
   h1 {
-    font-size: clamp(3.35rem, 18vw, 4.8rem);
+    font-size: clamp(2.45rem, 12.2vw, 3.25rem);
+    line-height: 0.98;
+  }
+
+  .hero-line {
+    font-size: clamp(1.05rem, 5.8vw, 1.45rem);
+  }
+
+  .next-hint {
+    font-size: 0.66rem;
+    letter-spacing: 0.14em;
   }
 
   .hero-copy {
@@ -780,6 +892,15 @@ textarea {
 
   .service-row {
     gap: 18px;
+    grid-template-columns: 1fr;
+  }
+
+  .service-number {
+    font-size: 2rem;
+  }
+
+  .service-row h3 {
+    font-size: clamp(1.55rem, 9vw, 2.25rem);
   }
 
   .contact-section {

@@ -163,6 +163,12 @@ function ServiceRoute({
   return (
     <section id={id} className={`service-route ${education ? "education" : ""}`}>
       <div className="service-intro">
+        <div className="route-emblem" aria-hidden="true">
+          <span className="emblem-core">{education ? "ED" : "IA"}</span>
+          <span className="emblem-orbit one" />
+          <span className="emblem-orbit two" />
+          <span className="emblem-line" />
+        </div>
         <p className="section-label">{label}</p>
         <h2>{title}</h2>
       </div>
